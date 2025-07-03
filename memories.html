@@ -2,52 +2,195 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Our Conversations 💬</title>
+  <title>Our Magical Memories 💌</title>
   <link rel="stylesheet" href="assets/styles.css">
   <style>
-    .memory-box {
-      width: 80%;
-      max-height: 80vh;
-      overflow-y: scroll;
-      background: #fff;
-      padding: 1rem;
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #fff0f5, #ffe6f0);
+      background-image: url('https://www.transparenttextures.com/patterns/romantic.png');
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Floating hearts animation */
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-800px); opacity: 0; }
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Heart_coraz%C3%B3n.svg/1024px-Heart_coraz%C3%B3n.svg.png') no-repeat center center/contain;
+      animation: float 10s linear infinite;
+    }
+
+    .chat-container {
+      max-width: 600px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 1rem;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      padding: 1rem;
+      box-shadow: 0 4px 30px rgba(255, 105, 180, 0.3);
+      position: relative;
+      z-index: 2;
     }
-    .memory {
-      margin-bottom: 1.5rem;
+
+    .message {
+      display: flex;
+      margin-bottom: 1rem;
+      animation: fadeInUp 0.6s ease both;
     }
-    .memory img {
-      width: 100%;
-      border-radius: 0.5rem;
-      margin-bottom: 0.5rem;
+
+    .left .bubble {
+      background: #fff;
+      color: #000;
+      border-radius: 1rem 1rem 1rem 0;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
-    .caption {
-      font-style: italic;
-      color: #444;
+
+    .right .bubble {
+      background: #dcf8c6;
+      color: #000;
+      border-radius: 1rem 1rem 0 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+
+    .bubble {
+      padding: 1rem;
+      max-width: 80%;
+      position: relative;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .message img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      align-self: flex-end;
+    }
+
+    .message.right {
+      justify-content: flex-end;
+    }
+
+    .message.right img {
+      margin-left: 0.5rem;
+      margin-right: 0;
+    }
+
+    .timestamp {
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 0.4rem;
+    }
+
+    .back-btn {
+      margin: 2rem auto 1rem;
+      display: block;
+      width: fit-content;
+      background: #ff4081;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 2px 10px rgba(255, 64, 129, 0.3);
+      z-index: 3;
+    }
+
+    .back-btn:hover {
+      background: #e73370;
+    }
+
+    .proposal {
+      background: #fff3f8;
+      border: 2px solid #ff4081;
+      box-shadow: 0 0 15px rgba(255, 64, 129, 0.3);
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 15px rgba(255, 64, 129, 0.2); }
+      to { box-shadow: 0 0 30px rgba(255, 64, 129, 0.5); }
+    }
+
+    audio {
+      display: none;
+    }
+
   </style>
 </head>
-<div style="margin-top: 3rem;">
-    <a href="menu.html" class="btn">🔙 Back to Menu</a>
-</div>
-  
 <body>
-  <audio id="bgMusic" loop>
-    <source src="assets/music/love_theme.mp3" type="audio/mpeg">
-  </audio>
-  
-  <h1>Our Chats, Our Journey 💌</h1>
-  <div class="memory-box">
-    <div class="memory">
-      <img src="assets/images/chat1.png" alt="chat">
-      <div class="caption">“Our first ever convo... I still remember 😄”</div>
+
+<!-- Floating hearts -->
+<div class="heart" style="left: 10%; animation-delay: 0s;"></div>
+<div class="heart" style="left: 30%; animation-delay: 3s;"></div>
+<div class="heart" style="left: 50%; animation-delay: 6s;"></div>
+<div class="heart" style="left: 70%; animation-delay: 1s;"></div>
+<div class="heart" style="left: 90%; animation-delay: 4s;"></div>
+
+<!-- Music -->
+<audio autoplay loop>
+  <source src="assets/music/Stephen Sanchez - Until I Found You (Instrumental).mp3" type="audio/mpeg">
+</audio>
+
+<!-- Chat Container -->
+<div class="chat-container">
+
+  <div class="message left">
+    <img src="assets/images/U/IMG-20250704-WA0041.jpg" alt="Devashree">
+    <div class="bubble proposal">
+      <strong>To The Perfect Person in this World,</strong><br><br>
+      Since you're sleeping it's the best time to talk about us now. It's been 7 dates and on every date you've made me feel like you are the bestest person I can ever have. From me endlessly talking to you to you endlessly listening to me. From you teaching me without making me feel fumb to me doing the same for you. From being too much in love to being too angry at each other — I wanna go through all of these with you Mr. Smruti Ranjan Rout.<br><br>
+      This Bihari Girl needs her Odia Boy for this whole life. The scar near your eyes, the mole on your face, I wanna get up seeing those every day. Whatever life brings, I wanna tackle everything while holding your hands.<br><br>
+      So from 7 dates to 70 years, would you like to be my forever wla Calmness, Smruti? ❤️<br><br>
+      Yours, Bhutki Bihari
+      <div class="timestamp">23:59 · 21 Sep 2024</div>
     </div>
-    <div class="memory">
-      <img src="assets/images/chat2.png" alt="chat">
-      <div class="caption">“This was that funny night 😂”</div>
-    </div>
-    <!-- Add more chat screenshots as needed -->
   </div>
+
+  <div class="message right">
+    <div class="bubble">
+      70 years nai 7 janam ka sth hota hain na jii ❤️
+      <div class="timestamp">04:23 · 22 Sep 2024</div>
+    </div>
+    <img src="assets/images/U/me.jpg" alt="Smruti">
+  </div>
+
+  <div class="message right">
+    <div class="bubble">
+      To, The best perfect person in this world,<br><br>
+      Life with you sounds like a crazy beautiful adventure. My Butki Bihari, no was never an option — I say yesss with all my organs and am ready for signing up 70 years of love, laughter, u tolerating me... but honestly, I wouldn't want it in any other way. ❤️<br><br>
+      I Love youuu sooooo sooo much tooo.
+      <div class="timestamp">04:35 · 22 Sep 2024</div>
+    </div>
+    <img src="assets/images/U/me.jpg" alt="Smruti">
+  </div>
+
+  <div class="message right">
+    <div class="bubble">
+      Devaaaa I just want uuu asehi hameshaa, holding my hands. It just feels like having u by my side, I have won everything in life like I don't want anything more.
+      <div class="timestamp">04:59 · 22 Sep 2024</div>
+    </div>
+    <img src="assets/images/U/me.jpg" alt="Smruti">
+  </div>
+
+</div>
+
+<a href="menu.html" class="back-btn">🔙 Back to Menu</a>
+
 </body>
 </html>
