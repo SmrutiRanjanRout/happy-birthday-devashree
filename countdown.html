@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown to Our Day ❤️</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #fff0f5, #ffe6f0);
+      background-image: url('https://www.transparenttextures.com/patterns/hearts.png');
+      background-size: 300px;
+      color: #d6336c;
+      text-align: center;
+    }
+
+    .top-left-back {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #ff4081;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(255, 64, 129, 0.3);
+      transition: background 0.3s ease;
+      z-index: 1000;
+    }
+
+    .top-left-back:hover {
+      background: #e73370;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 4rem;
+      color: #ff4081;
+      animation: fadeIn 1s ease;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #c2185b;
+      margin-bottom: 2.5rem;
+      animation: fadeIn 1.4s ease;
+    }
+
+    #countdown {
+      font-size: 2rem;
+      background: #ff4081;
+      color: white;
+      padding: 1.5rem 2rem;
+      border-radius: 1.2rem;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(255, 64, 129, 0.3);
+      animation: heartbeat 1.5s infinite;
+      margin-top: 2rem;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  <script>
+    function updateCountdown() {
+      const anniversary = new Date("2025-09-20T00:00:00");
+      const now = new Date();
+      const diff = anniversary - now;
+      const countdown = document.getElementById("countdown");
+      if (diff <= 0) {
+        countdown.innerText = "It's our anniversary today! 🎉";
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      countdown.innerText = 
+        `${days} days, ${hours} hours, ${minutes} mins, ${seconds} secs left 💖`;
+    }
+    setInterval(updateCountdown, 1000);
+  </script>
+</head>
+<body>
+  <a href="menu.html" class="top-left-back">🔙</a>
+  <audio id="bgMusic" loop>
+    <source src="assets/music/love_theme.mp3" type="audio/mpeg">
+  </audio>
+  
+  <h1>Counting Down to Our 1st Anniversary 💞</h1>
+  <p class="subtitle">Can’t wait to celebrate our love again — together forever 💑</p>
+  
+  <div id="countdown">Loading...</div>
+</body>
+</html>

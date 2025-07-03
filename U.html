@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>✨ Her Solo Moments</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffe0f0, #fff5fb);
+      font-family: "Segoe UI", sans-serif;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff4081;
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.6rem 1.2rem;
+      background: #ff4081;
+      color: white;
+      border-radius: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>✨ Her Solo Moments</h1>
+  <audio id="bgMusic" loop>
+    <source src="assets/music/love_theme.mp3" type="audio/mpeg">
+  </audio>
+  
+  <div class="gallery">
+    <img src="assets/images/U/IMG-20250704-WA0007.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0005.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0006.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0012.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0013.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0017.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0018.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0015.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0014.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0019.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0022.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0024.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0025.jpg" alt=""> 
+    <!-- Add more images as needed -->
+  </div>
+
+  <a href="gallery.html" class="btn">🔙 Back to Gallery</a>
+</body>
+</html>

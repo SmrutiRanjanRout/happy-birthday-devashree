@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>📱 VC Moments</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffe0f0, #fff5fb);
+      font-family: "Segoe UI", sans-serif;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff4081;
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.6rem 1.2rem;
+      background: #ff4081;
+      color: white;
+      border-radius: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>📱 VC Moments</h1>
+  <audio id="bgMusic" loop>
+    <source src="assets/music/love_theme.mp3" type="audio/mpeg">
+  </audio>
+  
+  <div class="gallery">
+    <img src="assets/images/VC/IMG-20250606-WA0011.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250610-WA0008.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250613-WA0002.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250613-WA0006.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250615-WA0002.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250624-WA0015.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250624-WA0016.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250624-WA0017.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250624-WA0018.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250624-WA0019.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250624-WA0020.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250624-WA0021.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250624-WA0022.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250624-WA0023.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250624-WA0024.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250624-WA0025.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250624-WA0026.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250624-WA0027.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250624-WA0028.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250624-WA0029.jpg" alt="">
+    <img src="assets/images/VC/IMG-20250624-WA0030.jpg" alt="">
+    <!-- Add more images -->
+  </div>
+
+  <a href="gallery.html" class="btn">🔙 Back to Gallery</a>
+</body>
+</html>

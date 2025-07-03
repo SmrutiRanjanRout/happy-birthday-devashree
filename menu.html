@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome Devashree 💖</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #fff0f5, #ffe6f0);
+      background-image: url('https://www.transparenttextures.com/patterns/fancy-deboss.png');
+      text-align: center;
+      color: #d6336c;
+      overflow-x: hidden;
+    }
+
+    .logout {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #ff5e94;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(255, 64, 129, 0.2);
+      transition: background 0.3s ease;
+    }
+
+    .logout:hover {
+      background: #e63370;
+    }
+
+    h1 {
+      font-size: 2.7rem;
+      margin-top: 4rem;
+      margin-bottom: 1rem;
+      animation: fadeIn 1s ease;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #c2185b;
+      margin-bottom: 3rem;
+      animation: fadeIn 1.4s ease;
+    }
+
+    .menu-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      animation: fadeIn 1.8s ease;
+    }
+
+    .option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: white;
+      padding: 1.2rem 2rem;
+      border-radius: 1.5rem;
+      border: 2px solid #ff5e94;
+      color: #ff5e94;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      width: 200px;
+      box-shadow: 0 4px 10px rgba(255, 64, 129, 0.2);
+      transition: 0.3s ease;
+    }
+
+    .option:hover {
+      background: #ff5e94;
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    .option img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 0.8rem;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ff5e94;
+    }
+
+    .footer {
+      margin-top: 4rem;
+      font-style: italic;
+      color: #999;
+      font-size: 0.95rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media screen and (max-width: 600px) {
+      .menu-options {
+        flex-direction: column;
+      }
+
+      .option {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="logout">🔓 Logout</a>
+  <audio id="bgMusic" loop>
+    <source src="assets/music/love_theme.mp3" type="audio/mpeg">
+  </audio>
+  
+  <h1>Welcome Devashree 💖</h1>
+  <p class="subtitle">You just unlocked something magical curated with love 🌸</p>
+
+  <div class="menu-options">
+    <a href="gallery.html" class="option">
+      <img src="assets/images/U/solo1.jpg" alt="Gallery">
+      📷 Gallery
+    </a>
+    <a href="memories.html" class="option">
+      <img src="assets/images/US/IMG-20250704-WA0048.jpg" alt="Memories">
+      💌 Memories
+    </a>
+    <a href="countdown.html" class="option">
+      <img src="assets/images/US/IMG-20250704-WA0030.jpg" alt="Countdown">
+      ⏳ Countdown
+    </a>
+  </div>
+
+  <div class="footer">
+    “To the love of my life — this is just the beginning.” 💫
+  </div>
+</body>
+</html>

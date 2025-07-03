@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Devashree's Birthday Login</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #fff0f5, #ffe6f0);
+      overflow: hidden;
+    }
+
+    .hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff4081;
+      transform: rotate(45deg);
+      animation: floatHearts linear infinite;
+      opacity: 0.7;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff4081;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes floatHearts {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.3);
+        opacity: 1;
+      }
+    }
+
+    .login-box {
+      position: relative;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 3rem 2rem;
+      border-radius: 2rem;
+      box-shadow: 0 0 20px rgba(255, 64, 129, 0.2);
+      width: 320px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      margin: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(-50%); }
+    }
+
+    .login-box h2 {
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      color: #ff4081;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 90%;
+      padding: 0.8rem;
+      margin: 0.8rem 0;
+      border: 2px solid #ffb6c1;
+      border-radius: 1rem;
+      outline: none;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    button {
+      background: #ff4081;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #e73370;
+    }
+
+    @media screen and (max-width: 500px) {
+      .login-box {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating hearts -->
+  <div class="hearts"></div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="assets/music/Stephen Sanchez - Until I Found You (Instrumental).mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Login Box -->
+  <div class="login-box">
+    <h2>Happy Birthday Devashree 🎂</h2>
+    <form onsubmit="return validateLogin()">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Enter</button>
+    </form>
+  </div>
+
+  <!-- JavaScript for login + music trigger -->
+  <script>
+    function validateLogin() {
+      const username = document.getElementById("username").value.toLowerCase();
+      const password = document.getElementById("password").value;
+      if (username === "devashree" && password === "1606") {
+        const music = document.getElementById("bgMusic");
+        music.volume = 0.2;
+        music.play();
+        setTimeout(() => {
+          window.location.href = "menu.html";
+        }, 500); // slight delay for music start
+      } else {
+        alert("Oops! Try again ❤️");
+      }
+      return false;
+    }
+
+    // generate floating hearts
+    window.onload = () => {
+      const container = document.querySelector(".hearts");
+      for (let i = 0; i < 25; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.animationDuration = `${5 + Math.random() * 5}s`;
+        heart.style.animationDelay = `${Math.random() * 5}s`;
+        heart.style.width = heart.style.height = `${15 + Math.random() * 20}px`;
+        container.appendChild(heart);
+      }
+    };
+
+    // start music on any click (satisfies browser interaction policy)
+    window.addEventListener("click", () => {
+      const music = document.getElementById("bgMusic");
+      if (music.paused) {
+        music.volume = 0.2;
+        music.play();
+      }
+    });
+  </script>
+</body>
+</html>
