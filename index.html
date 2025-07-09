@@ -3,14 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <title>Devashree's Birthday Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Libre+Baskerville&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css" />
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #fff0f5, #ffe6f0);
+      font-family: 'Libre Baskerville', serif;
+      background: radial-gradient(ellipse at center, rgba(173, 216, 230, 0.18), rgba(245, 222, 179, 0.95));
+      background-image: url('assets/images/vintage-paper.jpg'); /* Add this image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #5e3b2d;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       overflow: hidden;
+      position: relative;
     }
 
     .hearts {
@@ -19,13 +31,14 @@
       height: 100%;
       overflow: hidden;
       z-index: 0;
+      pointer-events: none;
     }
 
     .heart {
       position: absolute;
       width: 20px;
       height: 20px;
-      background: #ff4081;
+      background: #87cefa;
       transform: rotate(45deg);
       animation: floatHearts linear infinite;
       opacity: 0.7;
@@ -37,7 +50,7 @@
       position: absolute;
       width: 20px;
       height: 20px;
-      background: #ff4081;
+      background: #87cefa;
       border-radius: 50%;
     }
 
@@ -65,28 +78,23 @@
     .login-box {
       position: relative;
       z-index: 10;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.85);
       padding: 3rem 2rem;
-      border-radius: 2rem;
-      box-shadow: 0 0 20px rgba(255, 64, 129, 0.2);
-      width: 320px;
+      border: 3px dashed #deb887;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+      width: 340px;
       text-align: center;
-      backdrop-filter: blur(10px);
-      margin: auto;
-      top: 50%;
-      transform: translateY(-50%);
+      backdrop-filter: blur(8px);
       animation: fadeIn 1.5s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(-50%); }
     }
 
     .login-box h2 {
       margin-bottom: 1.5rem;
-      font-size: 1.8rem;
-      color: #ff4081;
+      font-size: 2.2rem;
+      color: #3f1d0d;
+      font-family: 'Dancing Script', cursive;
+      letter-spacing: 1px;
     }
 
     input[type="text"],
@@ -94,15 +102,17 @@
       width: 90%;
       padding: 0.8rem;
       margin: 0.8rem 0;
-      border: 2px solid #ffb6c1;
+      border: 2px solid #c4a484;
       border-radius: 1rem;
       outline: none;
       font-size: 1rem;
       text-align: center;
+      background-color: #fdf5e6;
+      color: #4b2e2e;
     }
 
     button {
-      background: #ff4081;
+      background: #5e3b2d;
       color: white;
       padding: 0.8rem 1.5rem;
       border: none;
@@ -111,10 +121,16 @@
       cursor: pointer;
       margin-top: 1rem;
       transition: background 0.3s ease;
+      font-family: 'Libre Baskerville', serif;
     }
 
     button:hover {
-      background: #e73370;
+      background: #3d261a;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media screen and (max-width: 500px) {
@@ -125,11 +141,12 @@
   </style>
 </head>
 <body>
+
   <!-- Floating hearts -->
   <div class="hearts"></div>
 
-  <!-- Background Music -->
-  <audio id="bgMusic" loop>
+  <!-- Music -->
+  <audio id="bgMusic" loop autoplay>
     <source src="assets/music/Stephen Sanchez - Until I Found You (Instrumental).mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
@@ -144,7 +161,6 @@
     </form>
   </div>
 
-  <!-- JavaScript for login + music trigger -->
   <script>
     function validateLogin() {
       const username = document.getElementById("username").value.toLowerCase();
@@ -155,14 +171,14 @@
         music.play();
         setTimeout(() => {
           window.location.href = "menu.html";
-        }, 500); // slight delay for music start
+        }, 500);
       } else {
         alert("Oops! Try again ❤️");
       }
       return false;
     }
 
-    // generate floating hearts
+    // floating blue hearts
     window.onload = () => {
       const container = document.querySelector(".hearts");
       for (let i = 0; i < 25; i++) {
@@ -176,8 +192,8 @@
       }
     };
 
-    // start music on any click (satisfies browser interaction policy)
-    window.addEventListener("click", () => {
+    // Start music on first click (mobile browser requirement)
+    document.addEventListener("click", () => {
       const music = document.getElementById("bgMusic");
       if (music.paused) {
         music.volume = 0.2;

@@ -9,33 +9,26 @@
       margin: 0;
       padding: 2rem;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #fff0f5, #ffe6f0);
-      background-image: url('https://www.transparenttextures.com/patterns/romantic.png');
+      background: radial-gradient(circle at center, rgba(185, 211, 240, 0.3), transparent 50%),
+                  url('https://www.transparenttextures.com/patterns/old-moon.png');
+      background-color: #fef7e2;
+      background-blend-mode: soft-light;
+      background-size: cover;
       overflow-x: hidden;
       position: relative;
     }
 
-    /* Floating hearts animation */
-    @keyframes float {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(-800px); opacity: 0; }
-    }
-
-    .heart {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Heart_coraz%C3%B3n.svg/1024px-Heart_coraz%C3%B3n.svg.png') no-repeat center center/contain;
-      animation: float 10s linear infinite;
-    }
-
     .chat-container {
-      max-width: 600px;
-      margin: auto;
+      max-width: 700px;
+      margin: 3rem auto;
       background: rgba(255, 255, 255, 0.95);
       border-radius: 1rem;
-      padding: 1rem;
-      box-shadow: 0 4px 30px rgba(255, 105, 180, 0.3);
+      padding: 1.5rem;
+      box-shadow:
+        0 0 0 2px rgba(139, 69, 19, 0.2),
+        0 0 30px rgba(139, 69, 19, 0.3),
+        inset 0 0 15px rgba(255, 237, 198, 0.6);
+      backdrop-filter: blur(3px);
       position: relative;
       z-index: 2;
     }
@@ -64,7 +57,6 @@
     .bubble {
       padding: 1rem;
       max-width: 80%;
-      position: relative;
       font-size: 1rem;
       line-height: 1.5;
     }
@@ -93,7 +85,7 @@
     }
 
     .back-btn {
-      margin: 2rem auto 1rem;
+      margin: 2rem auto;
       display: block;
       width: fit-content;
       background: #ff4081;
@@ -113,7 +105,7 @@
     .proposal {
       background: #fff3f8;
       border: 2px solid #ff4081;
-      box-shadow: 0 0 15px rgba(255, 64, 129, 0.3);
+      box-shadow: 0 0 20px rgba(255, 64, 129, 0.3);
       animation: glow 2s infinite alternate;
     }
 
@@ -127,25 +119,16 @@
       to { box-shadow: 0 0 30px rgba(255, 64, 129, 0.5); }
     }
 
-    audio {
+    /* Hidden iframe for music continuation */
+    #musicFrame {
       display: none;
     }
-
   </style>
 </head>
 <body>
 
-<!-- Floating hearts -->
-<div class="heart" style="left: 10%; animation-delay: 0s;"></div>
-<div class="heart" style="left: 30%; animation-delay: 3s;"></div>
-<div class="heart" style="left: 50%; animation-delay: 6s;"></div>
-<div class="heart" style="left: 70%; animation-delay: 1s;"></div>
-<div class="heart" style="left: 90%; animation-delay: 4s;"></div>
-
-<!-- Music -->
-<audio autoplay loop>
-  <source src="assets/music/Stephen Sanchez - Until I Found You (Instrumental).mp3" type="audio/mpeg">
-</audio>
+<!-- Floating music iframe -->
+<iframe src="music.html" id="musicFrame"></iframe>
 
 <!-- Chat Container -->
 <div class="chat-container">
@@ -191,6 +174,7 @@
 </div>
 
 <a href="menu.html" class="back-btn">🔙 Back to Menu</a>
+<iframe src="music.html" allow="autoplay" style="display: none;" id="music-frame"></iframe>
 
 </body>
 </html>

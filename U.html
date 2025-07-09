@@ -5,70 +5,95 @@
   <title>✨ Her Solo Moments</title>
   <style>
     body {
-      background: linear-gradient(to right, #ffe0f0, #fff5fb);
+      background: radial-gradient(circle at center, rgba(185, 211, 240, 0.2), transparent 50%),
+                  url('https://www.transparenttextures.com/patterns/old-wallpaper.png');
+      background-color: #fef6e8;
       font-family: "Segoe UI", sans-serif;
       padding: 2rem;
       text-align: center;
+      background-blend-mode: soft-light;
+      background-size: cover;
     }
 
     h1 {
-      color: #ff4081;
-      font-size: 2.2rem;
+      color: #a94465;
+      font-size: 2.4rem;
       margin-bottom: 2rem;
+      text-shadow: 1px 1px 1px #fff0f0;
     }
 
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
+      gap: 1.2rem;
+      padding-bottom: 2rem;
     }
 
     .gallery img {
       width: 100%;
       border-radius: 1rem;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease;
+      box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.2),
+        0 0 10px rgba(255, 214, 214, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .gallery img:hover {
       transform: scale(1.05);
+      box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.25),
+        0 0 12px rgba(255, 182, 193, 0.5);
     }
 
     .btn {
       display: inline-block;
       margin-top: 2rem;
-      padding: 0.6rem 1.2rem;
-      background: #ff4081;
+      padding: 0.6rem 1.3rem;
+      background: #a94465;
       color: white;
       border-radius: 1rem;
       text-decoration: none;
       font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #8d3654;
+    }
+
+    /* Hidden iframe for music continuation */
+    #musicFrame {
+      display: none;
     }
   </style>
 </head>
 <body>
+
+  <!-- Music iframe for continuous playback -->
+  <iframe src="music.html" id="musicFrame"></iframe>
+
   <h1>✨ Her Solo Moments</h1>
-  <audio id="bgMusic" loop>
-    <source src="assets/music/love_theme.mp3" type="audio/mpeg">
-  </audio>
-  
+
   <div class="gallery">
     <img src="assets/images/U/IMG-20250704-WA0007.jpg" alt="">
     <img src="assets/images/U/IMG-20250704-WA0005.jpg" alt="">
-    <img src="assets/images/U/IMG-20250704-WA0006.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0044.jpg" alt="">
     <img src="assets/images/U/IMG-20250704-WA0012.jpg" alt="">
     <img src="assets/images/U/IMG-20250704-WA0013.jpg" alt="">
     <img src="assets/images/U/IMG-20250704-WA0017.jpg" alt="">
     <img src="assets/images/U/IMG-20250704-WA0018.jpg" alt="">
-    <img src="assets/images/U/IMG-20250704-WA0015.jpg" alt="">
-    <img src="assets/images/U/IMG-20250704-WA0014.jpg" alt="">
-    <img src="assets/images/U/IMG-20250704-WA0019.jpg" alt="">
-    <img src="assets/images/U/IMG-20250704-WA0022.jpg" alt="">
-    <img src="assets/images/U/IMG-20250704-WA0024.jpg" alt="">
-    <img src="assets/images/U/IMG-20250704-WA0025.jpg" alt=""> 
-    <!-- Add more images as needed -->
+    <img src="assets/images/U/IMG-20250704-WA0020.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0021.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0027.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0033.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0042.jpg" alt="">
+    <img src="assets/images/U/IMG-20250704-WA0025.jpg" alt="">
+    <!-- Add more images if needed -->
   </div>
 
   <a href="gallery.html" class="btn">🔙 Back to Gallery</a>
+<iframe src="music.html" allow="autoplay" style="display: none;" id="music-frame"></iframe>
+
 </body>
 </html>
