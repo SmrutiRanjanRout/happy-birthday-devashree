@@ -3,26 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <title>Devashree's Birthday Login</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/833/833472.png" type="image/png">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Libre+Baskerville&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css" />
+
+  <!-- Share Preview -->
+  <meta property="og:title" content="Happy Birthday Devashree 🎉">
+  <meta property="og:description" content="A surprise website full of love, memories, and magic — made just for you! ❤️">
+  <meta property="og:image" content="assets/images/preview.jpg">
+  <meta property="og:url" content="https://smrutiranjanrout.github.io/happy-birthday-devashree">
+  <meta name="twitter:card" content="summary_large_image">
+
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: 'Libre Baskerville', serif;
       background: radial-gradient(ellipse at center, rgba(173, 216, 230, 0.18), rgba(245, 222, 179, 0.95));
-      background-image: url('assets/images/vintage-paper.jpg'); /* Add this image */
+      background-image: url('assets/images/vintage-paper.jpg');
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
       color: #5e3b2d;
-
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       overflow: hidden;
       position: relative;
+      animation: fadeIn 1.8s ease;
     }
 
     .hearts {
@@ -54,25 +64,12 @@
       border-radius: 50%;
     }
 
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: -10px;
-      top: 0;
-    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
 
     @keyframes floatHearts {
-      0% {
-        transform: translateY(100vh) scale(1);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(-10vh) scale(1.3);
-        opacity: 1;
-      }
+      0% { transform: translateY(100vh) scale(1); opacity: 0; }
+      100% { transform: translateY(-10vh) scale(1.3); opacity: 1; }
     }
 
     .login-box {
@@ -95,6 +92,20 @@
       color: #3f1d0d;
       font-family: 'Dancing Script', cursive;
       letter-spacing: 1px;
+      overflow: hidden;
+      border-right: 3px solid #5e3b2d;
+      white-space: nowrap;
+      width: 0;
+      animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
     }
 
     input[type="text"],
@@ -129,31 +140,33 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     @media screen and (max-width: 500px) {
-      .login-box {
-        width: 90%;
-      }
+      .login-box { width: 90%; }
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating hearts -->
+  <!-- Floating Hearts -->
   <div class="hearts"></div>
 
-  <!-- Music -->
-  <audio id="bgMusic" loop autoplay>
-    <source src="assets/music/Stephen Sanchez - Until I Found You (Instrumental).mp3" type="audio/mpeg" />
+  <!-- Background Music -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="assets/music/Stephen Sanchez - Until I Found You (Instrumental).mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
   <!-- Login Box -->
   <div class="login-box">
-    <h2>Happy Birthday Devashree 🎂</h2>
+    <h2>Happy Birthday Deva🎂</h2>
     <form onsubmit="return validateLogin()">
       <input type="text" id="username" placeholder="Username" required />
       <input type="password" id="password" placeholder="Password" required />
@@ -161,6 +174,7 @@
     </form>
   </div>
 
+  <!-- JavaScript -->
   <script>
     function validateLogin() {
       const username = document.getElementById("username").value.toLowerCase();
@@ -178,7 +192,7 @@
       return false;
     }
 
-    // floating blue hearts
+    // Floating blue hearts
     window.onload = () => {
       const container = document.querySelector(".hearts");
       for (let i = 0; i < 25; i++) {
@@ -192,7 +206,7 @@
       }
     };
 
-    // Start music on first click (mobile browser requirement)
+    // Start music on user interaction (for mobile browsers)
     document.addEventListener("click", () => {
       const music = document.getElementById("bgMusic");
       if (music.paused) {
