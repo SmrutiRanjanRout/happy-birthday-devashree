@@ -4,16 +4,19 @@
   <meta charset="UTF-8" />
   <title>Devashree's Birthday Login</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/833/833472.png" type="image/png">
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Libre+Baskerville&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css" />
 
-  <!-- Share Preview -->
-  <meta property="og:title" content="Happy Birthday Devashree 🎉">
-  <meta property="og:description" content="A surprise website full of love, memories, and magic — made just for you! ❤️">
-  <meta property="og:image" content="assets/images/preview.jpg">
+  <!-- 🩷 Social Preview Meta Tags -->
+  <meta property="og:title" content="Happy Birthday Deva 🎂">
+  <meta property="og:description" content="A surprise just for you — filled with love, memories and magic 💕">
+  <meta property="og:image" content="https://smrutiranjanrout.github.io/happy-birthday-devashree/share-card.jpg">
   <meta property="og:url" content="https://smrutiranjanrout.github.io/happy-birthday-devashree">
+  <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Happy Birthday Deva 🎂">
+  <meta name="twitter:description" content="A surprise just for you — filled with love, memories and magic 💕">
+  <meta name="twitter:image" content="https://smrutiranjanrout.github.io/happy-birthday-devashree/share-card.jpg">
 
   <style>
     body {
@@ -161,12 +164,11 @@
   <!-- Background Music -->
   <audio id="bgMusic" autoplay loop>
     <source src="assets/music/Stephen Sanchez - Until I Found You (Instrumental).mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
   </audio>
 
   <!-- Login Box -->
   <div class="login-box">
-    <h2>Happy Birthday Deva🎂</h2>
+    <h2>Happy Birthday Deva — A surprise just for you 🎂</h2>
     <form onsubmit="return validateLogin()">
       <input type="text" id="username" placeholder="Username" required />
       <input type="password" id="password" placeholder="Password" required />
@@ -174,7 +176,6 @@
     </form>
   </div>
 
-  <!-- JavaScript -->
   <script>
     function validateLogin() {
       const username = document.getElementById("username").value.toLowerCase();
@@ -206,7 +207,6 @@
       }
     };
 
-    // Start music on user interaction (for mobile browsers)
     document.addEventListener("click", () => {
       const music = document.getElementById("bgMusic");
       if (music.paused) {
