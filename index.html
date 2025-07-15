@@ -1,219 +1,222 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8" />
-  <title>Devashree's Birthday Login</title>
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/833/833472.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Libre+Baskerville&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css" />
-
-  <!-- 🩷 Social Preview Meta Tags -->
-  <meta property="og:title" content="Happy Birthday Deva 🎂">
-  <meta property="og:description" content="A surprise just for you — filled with love, memories and magic 💕">
-  <meta property="og:image" content="https://smrutiranjanrout.github.io/happy-birthday-devashree/share-card.jpg">
-  <meta property="og:url" content="https://smrutiranjanrout.github.io/happy-birthday-devashree">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Happy Birthday Deva 🎂">
-  <meta name="twitter:description" content="A surprise just for you — filled with love, memories and magic 💕">
-  <meta name="twitter:image" content="https://smrutiranjanrout.github.io/happy-birthday-devashree/share-card.jpg">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>HBD love</title>
+  <link type="text/css" rel="stylesheet" href="./file/default.css" />
+  <script type="text/javascript" src="./file/jquery.min.js"></script>
+  <script type="text/javascript" src="./file/jscex.min.js"></script>
+  <script type="text/javascript" src="./file/jscex-parser.js"></script>
+  <script type="text/javascript" src="./file/jscex-jit.js"></script>
+  <script type="text/javascript" src="./file/jscex-builderbase.min.js"></script>
+  <script type="text/javascript" src="./file/jscex-async.min.js"></script>
+  <script type="text/javascript" src="./file/jscex-async-powerpack.min.js"></script>
+  <script type="text/javascript" src="./file/functions.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./file/love.js" charset="utf-8"></script>
 
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Libre Baskerville', serif;
-      background: radial-gradient(ellipse at center, rgba(173, 216, 230, 0.18), rgba(245, 222, 179, 0.95));
-      background-image: url('assets/images/vintage-paper.jpg');
+      background: url("img2.png") no-repeat center center fixed;
       background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      color: #5e3b2d;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-      animation: fadeIn 1.8s ease;
+      font-family: 'Courier New', Courier, monospace;
     }
 
-    .hearts {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .heart {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: #87cefa;
-      transform: rotate(45deg);
-      animation: floatHearts linear infinite;
-      opacity: 0.7;
-    }
-
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: #87cefa;
-      border-radius: 50%;
-    }
-
-    .heart::before { top: -10px; left: 0; }
-    .heart::after { left: -10px; top: 0; }
-
-    @keyframes floatHearts {
-      0% { transform: translateY(100vh) scale(1); opacity: 0; }
-      100% { transform: translateY(-10vh) scale(1.3); opacity: 1; }
-    }
-
-    .login-box {
-      position: relative;
-      z-index: 10;
-      background: rgba(255, 255, 255, 0.85);
-      padding: 3rem 2rem;
-      border: 3px dashed #deb887;
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
-      width: 340px;
-      text-align: center;
-      backdrop-filter: blur(8px);
-      animation: fadeIn 1.5s ease;
-    }
-
-    .login-box h2 {
-      margin-bottom: 1.5rem;
-      font-size: 2.2rem;
-      color: #3f1d0d;
-      font-family: 'Dancing Script', cursive;
-      letter-spacing: 1px;
-      overflow: hidden;
-      border-right: 3px solid #5e3b2d;
-      white-space: nowrap;
-      width: 0;
-      animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    input[type="text"],
-    input[type="password"] {
-      width: 90%;
-      padding: 0.8rem;
-      margin: 0.8rem 0;
-      border: 2px solid #c4a484;
-      border-radius: 1rem;
-      outline: none;
-      font-size: 1rem;
-      text-align: center;
-      background-color: #fdf5e6;
-      color: #4b2e2e;
-    }
-
-    button {
-      background: #5e3b2d;
+    #next-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 28px;
+      font-size: 18px;
+      background-color: #ff3366;
       color: white;
-      padding: 0.8rem 1.5rem;
       border: none;
-      border-radius: 1rem;
-      font-weight: bold;
+      border-radius: 25px;
       cursor: pointer;
-      margin-top: 1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
       transition: background 0.3s ease;
-      font-family: 'Libre Baskerville', serif;
     }
 
-    button:hover {
-      background: #3d261a;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @media screen and (max-width: 500px) {
-      .login-box { width: 90%; }
-    }
-
-    audio {
-      display: none;
+    #next-btn:hover {
+      background-color: #e62e5c;
     }
   </style>
+
+  <script>
+    function playAudio() {
+      var audio = document.getElementById("myAudio");
+      audio.play();
+    }
+  </script>
 </head>
+
 <body>
+  <div id="main">
+    <div id="error">
+      <a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>
+      (<a href="http://firefox.com.cn/download/">Firefox</a>)
+    </div>
 
-  <!-- Floating Hearts -->
-  <div class="hearts"></div>
+    <audio autoplay="autoplay" height="100" width="100" id="myAudio">
+      <source src="assets/music/aud.mp3" type="audio/mp3" />
+      <embed height="100" width="100" src="aud.mp3" />
+    </audio>
 
-  <!-- Background Music -->
-  <audio id="bgMusic" autoplay loop>
-    <source src="assets/music/Stephen Sanchez - Until I Found You (Instrumental).mp3" type="audio/mpeg">
-  </audio>
+    <div id="wrap">
+      <div id="text">
+        <div id="code">
+          <span class="say">My beautiful butki bihari</span><br />
+          <span class="say">Happy Birthday </span><br />
+          <span class="say">May God bless you always </span><br />
+          <span class="say">And give you every possible happiness </span><br />
+          <span class="say">I loved you </span><br />
+          <span class="say">And I will always love you </span><br />
+          <span class="say">Hope you have a great day today </span><br />
+        </div>
+      </div>
 
-  <!-- Login Box -->
-  <div class="login-box">
-    <h2>Happy Birthday Deva — A surprise just for you 🎂</h2>
-    <form onsubmit="return validateLogin()">
-      <input type="text" id="username" placeholder="Username" required />
-      <input type="password" id="password" placeholder="Password" required />
-      <button type="submit">Enter</button>
-    </form>
+      <canvas id="canvas" width="1100" height="680"></canvas>
+    </div>
+
+    <!-- Next Button at bottom center -->
+    <a href="login.html"><button id="next-btn">Next ➜</button></a>
   </div>
 
   <script>
-    function validateLogin() {
-      const username = document.getElementById("username").value.toLowerCase();
-      const password = document.getElementById("password").value;
-      if (username === "devashree" && password === "1606") {
-        const music = document.getElementById("bgMusic");
-        music.volume = 0.2;
-        music.play();
-        setTimeout(() => {
-          window.location.href = "menu.html";
-        }, 500);
-      } else {
-        alert("Oops! Try again ❤️");
-      }
-      return false;
-    }
+    (function () {
+      var canvas = $('#canvas');
 
-    // Floating blue hearts
-    window.onload = () => {
-      const container = document.querySelector(".hearts");
-      for (let i = 0; i < 25; i++) {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.style.left = `${Math.random() * 100}%`;
-        heart.style.animationDuration = `${5 + Math.random() * 5}s`;
-        heart.style.animationDelay = `${Math.random() * 5}s`;
-        heart.style.width = heart.style.height = `${15 + Math.random() * 20}px`;
-        container.appendChild(heart);
+      if (!canvas[0].getContext) {
+        $("#error").show();
+        return false;
       }
-    };
 
-    document.addEventListener("click", () => {
-      const music = document.getElementById("bgMusic");
-      if (music.paused) {
-        music.volume = 0.2;
-        music.play();
+      var width = canvas.width();
+      var height = canvas.height();
+      canvas.attr("width", width);
+      canvas.attr("height", height);
+
+      var opts = {
+        seed: {
+          x: width / 2 - 20,
+          color: "rgb(190, 26, 37)",
+          scale: 2
+        },
+        branch: [
+          [535, 680, 570, 250, 500, 200, 30, 100, [
+            [540, 500, 455, 417, 340, 400, 13, 100, [
+              [450, 435, 434, 430, 394, 395, 2, 40]
+            ]],
+            [550, 445, 600, 356, 680, 345, 12, 100, [
+              [578, 400, 648, 409, 661, 426, 3, 80]
+            ]],
+            [539, 281, 537, 248, 534, 217, 3, 40],
+            [546, 397, 413, 247, 328, 244, 9, 80, [
+              [427, 286, 383, 253, 371, 205, 2, 40],
+              [498, 345, 435, 315, 395, 330, 4, 60]
+            ]],
+            [546, 357, 608, 252, 678, 221, 6, 100, [
+              [590, 293, 646, 277, 648, 271, 2, 80]
+            ]]
+          ]]
+        ],
+        bloom: {
+          num: 700,
+          width: 1080,
+          height: 650,
+        },
+        footer: {
+          width: 1200,
+          height: 5,
+          speed: 10,
+        }
       }
-    });
+
+      var tree = new Tree(canvas[0], width, height, opts);
+      var seed = tree.seed;
+      var foot = tree.footer;
+      var hold = 1;
+
+      canvas.click(function (e) {
+        playAudio();
+        var offset = canvas.offset(), x, y;
+        x = e.pageX - offset.left;
+        y = e.pageY - offset.top;
+        if (seed.hover(x, y)) {
+          hold = 0;
+          canvas.unbind("click");
+          canvas.unbind("mousemove");
+          canvas.removeClass('hand');
+        }
+      }).mousemove(function (e) {
+        var offset = canvas.offset(), x, y;
+        x = e.pageX - offset.left;
+        y = e.pageY - offset.top;
+        canvas.toggleClass('hand', seed.hover(x, y));
+      });
+
+      var seedAnimate = eval(Jscex.compile("async", function () {
+        seed.draw();
+        while (hold) {
+          $await(Jscex.Async.sleep(10));
+        }
+        while (seed.canScale()) {
+          seed.scale(0.95);
+          $await(Jscex.Async.sleep(10));
+        }
+        while (seed.canMove()) {
+          seed.move(0, 2);
+          foot.draw();
+          $await(Jscex.Async.sleep(10));
+        }
+      }));
+
+      var growAnimate = eval(Jscex.compile("async", function () {
+        do {
+          tree.grow();
+          $await(Jscex.Async.sleep(10));
+        } while (tree.canGrow());
+      }));
+
+      var flowAnimate = eval(Jscex.compile("async", function () {
+        do {
+          tree.flower(2);
+          $await(Jscex.Async.sleep(10));
+        } while (tree.canFlower());
+      }));
+
+      var moveAnimate = eval(Jscex.compile("async", function () {
+        tree.snapshot("p1", 240, 0, 610, 680);
+        while (tree.move("p1", 500, 0)) {
+          foot.draw();
+          $await(Jscex.Async.sleep(10));
+        }
+        foot.draw();
+        tree.snapshot("p2", 500, 0, 610, 680);
+
+        canvas.parent().css("background", "url(" + tree.toDataURL('img2.png') + ")");
+        canvas.css("background", "#ffe");
+        $await(Jscex.Async.sleep(300));
+        canvas.css("background", "none");
+      }));
+
+      var textAnimate = eval(Jscex.compile("async", function () {
+        $("#code").show().typewriter();
+      }));
+
+      var runAsync = eval(Jscex.compile("async", function () {
+        $await(seedAnimate());
+        $await(growAnimate());
+        $await(flowAnimate());
+        $await(moveAnimate());
+        textAnimate().start();
+      }));
+
+      runAsync().start();
+    })();
   </script>
 </body>
 </html>
