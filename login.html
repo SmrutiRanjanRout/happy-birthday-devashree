@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Devashree's Birthday Login</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/833/833472.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+
+  <!-- 🩷 Social Preview Meta Tags -->
+  <meta property="og:title" content="Happy Birthday Deva 🎂">
+  <meta property="og:description" content="A surprise just for you — filled with love, memories and magic 💕">
+  <meta property="og:image" content="https://smrutiranjanrout.github.io/happy-birthday-devashree/share-card.jpg">
+  <meta property="og:url" content="https://smrutiranjanrout.github.io/happy-birthday-devashree">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Happy Birthday Deva 🎂">
+  <meta name="twitter:description" content="A surprise just for you — filled with love, memories and magic 💕">
+  <meta name="twitter:image" content="https://smrutiranjanrout.github.io/happy-birthday-devashree/share-card.jpg">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Libre Baskerville', serif;
+      background: radial-gradient(ellipse at center, rgba(173, 216, 230, 0.18), rgba(245, 222, 179, 0.95));
+      background-image: url('assets/images/vintage-paper.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #5e3b2d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      animation: fadeIn 1.8s ease;
+    }
+
+    .hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #87cefa;
+      transform: rotate(45deg);
+      animation: floatHearts linear infinite;
+      opacity: 0.7;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #87cefa;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+
+    @keyframes floatHearts {
+      0% { transform: translateY(100vh) scale(1); opacity: 0; }
+      100% { transform: translateY(-10vh) scale(1.3); opacity: 1; }
+    }
+
+    .login-box {
+      position: relative;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 3rem 2rem;
+      border: 3px dashed #deb887;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+      width: 340px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      animation: fadeIn 1.5s ease;
+    }
+
+    .login-box h2 {
+      margin-bottom: 1.5rem;
+      font-size: 2.2rem;
+      color: #3f1d0d;
+      font-family: 'Dancing Script', cursive;
+      letter-spacing: 1px;
+      overflow: hidden;
+      border-right: 3px solid #5e3b2d;
+      white-space: nowrap;
+      width: 0;
+      animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 90%;
+      padding: 0.8rem;
+      margin: 0.8rem 0;
+      border: 2px solid #c4a484;
+      border-radius: 1rem;
+      outline: none;
+      font-size: 1rem;
+      text-align: center;
+      background-color: #fdf5e6;
+      color: #4b2e2e;
+    }
+
+    button {
+      background: #5e3b2d;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.3s ease;
+      font-family: 'Libre Baskerville', serif;
+    }
+
+    button:hover {
+      background: #3d261a;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media screen and (max-width: 500px) {
+      .login-box { width: 90%; }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Hearts -->
+  <div class="hearts"></div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="assets/music/Stephen Sanchez - Until I Found You (Instrumental).mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Login Box -->
+  <div class="login-box">
+    <h2>Happy Birthday Deva — A surprise just for you 🎂</h2>
+    <form onsubmit="return validateLogin()">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Enter</button>
+    </form>
+  </div>
+
+  <script>
+    function validateLogin() {
+      const username = document.getElementById("username").value.toLowerCase();
+      const password = document.getElementById("password").value;
+      if (username === "devashree" && password === "1606") {
+        const music = document.getElementById("bgMusic");
+        music.volume = 0.2;
+        music.play();
+        setTimeout(() => {
+          window.location.href = "menu.html";
+        }, 500);
+      } else {
+        alert("Oops! Try again ❤️");
+      }
+      return false;
+    }
+
+    // Floating blue hearts
+    window.onload = () => {
+      const container = document.querySelector(".hearts");
+      for (let i = 0; i < 25; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.animationDuration = `${5 + Math.random() * 5}s`;
+        heart.style.animationDelay = `${Math.random() * 5}s`;
+        heart.style.width = heart.style.height = `${15 + Math.random() * 20}px`;
+        container.appendChild(heart);
+      }
+    };
+
+    document.addEventListener("click", () => {
+      const music = document.getElementById("bgMusic");
+      if (music.paused) {
+        music.volume = 0.2;
+        music.play();
+      }
+    });
+  </script>
+</body>
+</html>
