@@ -43,10 +43,7 @@
       transition: background 0.3s ease;
       z-index: 1000;
     }
-
-    .top-left-back:hover {
-      background: #8d3654;
-    }
+    .top-left-back:hover { background: #8d3654; }
 
     h1 {
       font-size: 2.4rem;
@@ -72,6 +69,28 @@
       display: inline-block;
       box-shadow: 0 0 15px rgba(169, 68, 101, 0.3);
       animation: heartbeat 1.5s infinite;
+    }
+
+    /* Surprise Button (hidden at first) */
+    #surpriseBtn {
+      display: none;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 1.5rem;
+      background: linear-gradient(45deg, #ff5f6d, #ffc371);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 105, 135, 0.6);
+      animation: glow 1.5s infinite alternate;
+    }
+    #surpriseBtn:hover { transform: scale(1.05); }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 10px #ff5f6d; }
+      to { box-shadow: 0 0 25px #ffc371; }
     }
 
     /* Floating hearts */
@@ -100,23 +119,12 @@
     }
 
     @media screen and (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      .subtitle {
-        font-size: 1rem;
-      }
-
-      #countdown {
-        font-size: 1.2rem;
-        padding: 1rem;
-      }
+      h1 { font-size: 2rem; }
+      .subtitle { font-size: 1rem; }
+      #countdown { font-size: 1.2rem; padding: 1rem; }
     }
 
-    #musicFrame {
-      display: none;
-    }
+    #musicFrame { display: none; }
   </style>
   <script>
     function updateCountdown() {
@@ -124,10 +132,11 @@
       const now = new Date();
       const diff = anniversary - now;
       const countdown = document.getElementById("countdown");
+      const surpriseBtn = document.getElementById("surpriseBtn");
 
       if (diff <= 0) {
         countdown.innerText = "It's our anniversary today! 🎉💖";
-        alert("🎉 Surprise! It's our Anniversary! 💖 Let’s celebrate!");
+        surpriseBtn.style.display = "inline-block";
         return;
       }
 
@@ -153,7 +162,7 @@
   <div class="heart" style="left: 70%; animation-delay: 1s;"></div>
   <div class="heart" style="left: 90%; animation-delay: 3s;"></div>
 
-  <!-- Music iframe for continuous playback -->
+  <!-- Music iframe -->
   <iframe src="music.html" id="musicFrame"></iframe>
 
   <a href="menu.html" class="top-left-back">🔙</a>
@@ -162,8 +171,9 @@
     <h1>Counting Down to Our 1st Anniversary 💞</h1>
     <p class="subtitle">Can't wait to celebrate our love again — together forever 💑</p>
     <div id="countdown">Loading...</div>
-  </div>
-  <iframe src="music.html" allow="autoplay" style="display: none;" id="music-frame"></iframe>
 
+    <!-- Surprise Button -->
+    <button id="surpriseBtn" onclick="location.href='letter.html'">Click for Surprise 💌</button>
+  </div>
 </body>
 </html>

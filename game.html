@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Catching Hearts 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #fdf6e3 url('https://www.transparenttextures.com/patterns/aged-paper.png');
+      text-align: center;
+      color: #502d2d;
+      box-shadow: inset 0 0 100px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+      margin: 1rem 0;
+      font-size: 2.2rem;
+      color: #7e504f;
+    }
+
+    canvas {
+      display: block;
+      margin: auto;
+      background: linear-gradient(to top, #ffe0f0, #fffaf5);
+      border: 3px solid #e6c4a4;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+
+    #scoreboard {
+      margin: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #3e1f1f;
+    }
+
+    #gameOver {
+      display: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #a94465;
+      margin-top: 1rem;
+    }
+
+    .restart, .vlogs-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.6rem;
+      font-size: 1rem;
+      background: #fff;
+      color: #3e1f1f;
+      border: 2px solid #e6c4a4;
+      border-radius: 2rem;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+
+    .restart:hover, .vlogs-btn:hover {
+      background: #fffbe6;
+      transform: translateY(-3px);
+    }
+
+    .vlogs-btn {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Catch the Hearts 💖</h1>
+  <div id="scoreboard">Score: 0 | Missed: 0</div>
+  <canvas id="gameCanvas" width="400" height="600"></canvas>
+  <div id="gameOver"></div>
+  <button class="restart" onclick="startGame()">Restart Game</button>
+  <br>
+  <a href="videos.html" class="vlogs-btn" id="vlogsBtn">🎬 Watch Our Vlogs</a>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let hearts = [];
+    let score = 0;
+    let missed = 0;
+    let gameRunning = true;
+    let spawnInterval;
+
+    function Heart(x, y, speed) {
+      this.x = x;
+      this.y = y;
+      this.speed = speed;
+      this.size = 30;
+    }
+
+    function drawHeart(x, y, size) {
+      ctx.fillStyle = "#e63971";
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.bezierCurveTo(x, y - size/2, x - size, y - size/2, x - size, y);
+      ctx.bezierCurveTo(x - size, y + size/2, x, y + size, x, y + size*1.5);
+      ctx.bezierCurveTo(x, y + size, x + size, y + size/2, x + size, y);
+      ctx.bezierCurveTo(x + size, y - size/2, x, y - size/2, x, y);
+      ctx.fill();
+    }
+
+    function spawnHeart() {
+      let x = Math.random() * (canvas.width - 40) + 20;
+      let y = canvas.height + 30;
+      let speed = 1 + Math.random() * 2;
+      hearts.push(new Heart(x, y, speed));
+    }
+
+    function update() {
+      if (!gameRunning) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = hearts.length - 1; i >= 0; i--) {
+        let h = hearts[i];
+        h.y -= h.speed;
+        drawHeart(h.x, h.y, h.size/2);
+
+        if (h.y < -20) {
+          hearts.splice(i, 1);
+          missed++;
+          updateScore();
+          if (missed >= 5) {
+            endGame();
+          }
+        }
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    function updateScore() {
+      document.getElementById("scoreboard").textContent =
+        `Score: ${score} | Missed: ${missed}`;
+    }
+
+    function endGame() {
+      gameRunning = false;
+      clearInterval(spawnInterval);
+
+      let msg = `Game Over!<br>Final Score: ${score}<br><br>Chiiii Chiiii Chiiii 😏😂`;
+
+      document.getElementById("gameOver").style.display = "block";
+      document.getElementById("gameOver").innerHTML = msg;
+
+      // Show vlog button only if player caught at least 1 heart
+      if (score >= 1) {
+        document.getElementById("vlogsBtn").style.display = "inline-block";
+      }
+    }
+
+    canvas.addEventListener("click", function(e) {
+      if (!gameRunning) return;
+      const rect = canvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickY = e.clientY - rect.top;
+
+      for (let i = hearts.length - 1; i >= 0; i--) {
+        let h = hearts[i];
+        if (
+          clickX > h.x - h.size &&
+          clickX < h.x + h.size &&
+          clickY > h.y - h.size &&
+          clickY < h.y + h.size
+        ) {
+          hearts.splice(i, 1);
+          score++;
+          updateScore();
+          break;
+        }
+      }
+    });
+
+    function startGame() {
+      score = 0;
+      missed = 0;
+      hearts = [];
+      gameRunning = true;
+      document.getElementById("gameOver").style.display = "none";
+      document.getElementById("vlogsBtn").style.display = "none";
+      updateScore();
+
+      spawnInterval = setInterval(() => {
+        if (gameRunning) spawnHeart();
+      }, 1000);
+
+      update();
+    }
+
+    startGame();
+  </script>
+</body>
+</html>
