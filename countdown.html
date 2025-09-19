@@ -16,47 +16,21 @@
       color: #a94465;
       overflow-x: hidden;
       position: relative;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 2rem;
       text-align: center;
-      z-index: 2;
     }
-
-    .top-left-back {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background: #a94465;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 1rem;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 0 10px rgba(169, 68, 101, 0.3);
-      transition: background 0.3s ease;
-      z-index: 1000;
-    }
-    .top-left-back:hover { background: #8d3654; }
 
     h1 {
       font-size: 2.4rem;
       color: #a94465;
-      animation: fadeIn 1s ease;
       margin-bottom: 1rem;
       text-shadow: 1px 1px 0 #fff1f5;
+      animation: fadeIn 1s ease;
     }
 
     .subtitle {
       font-size: 1.2rem;
       color: #b3506c;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       animation: fadeIn 1.4s ease;
     }
 
@@ -71,9 +45,7 @@
       animation: heartbeat 1.5s infinite;
     }
 
-    /* Surprise Button (hidden at first) */
     #surpriseBtn {
-      display: none;
       margin-top: 2rem;
       padding: 1rem 2rem;
       font-size: 1.2rem;
@@ -85,7 +57,9 @@
       cursor: pointer;
       box-shadow: 0 0 20px rgba(255, 105, 135, 0.6);
       animation: glow 1.5s infinite alternate;
+      display: none; /* hidden until countdown reaches zero */
     }
+
     #surpriseBtn:hover { transform: scale(1.05); }
 
     @keyframes glow {
@@ -93,7 +67,6 @@
       to { box-shadow: 0 0 25px #ffc371; }
     }
 
-    /* Floating hearts */
     .heart {
       position: absolute;
       width: 20px;
@@ -118,40 +91,30 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    .top-left-back {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #a94465;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(169, 68, 101, 0.3);
+      transition: background 0.3s ease;
+      z-index: 1000;
+    }
+    .top-left-back:hover { background: #8d3654; }
+
+    #musicFrame { display: none; }
+
     @media screen and (max-width: 600px) {
       h1 { font-size: 2rem; }
       .subtitle { font-size: 1rem; }
       #countdown { font-size: 1.2rem; padding: 1rem; }
     }
-
-    #musicFrame { display: none; }
   </style>
-  <script>
-    function updateCountdown() {
-      const anniversary = new Date("2025-09-20T00:00:00");
-      const now = new Date();
-      const diff = anniversary - now;
-      const countdown = document.getElementById("countdown");
-      const surpriseBtn = document.getElementById("surpriseBtn");
-
-      if (diff <= 0) {
-        countdown.innerText = "It's our anniversary today! 🎉💖";
-        surpriseBtn.style.display = "inline-block";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      countdown.innerText =
-        `${days} days, ${hours} hrs, ${minutes} mins, ${seconds} secs left 💞`;
-    }
-
-    setInterval(updateCountdown, 1000);
-    window.onload = updateCountdown;
-  </script>
 </head>
 <body>
 
@@ -175,5 +138,31 @@
     <!-- Surprise Button -->
     <button id="surpriseBtn" onclick="location.href='anniversary.html'">Click for Surprise 💌</button>
   </div>
+
+  <script>
+    function updateCountdown() {
+      const anniversary = new Date("2025-09-20T00:00:00");
+      const now = new Date();
+      const diff = anniversary - now;
+      const countdown = document.getElementById("countdown");
+      const surpriseBtn = document.getElementById("surpriseBtn");
+
+      if (diff <= 0) {
+        countdown.innerText = "🎉 Our Anniversary is Today! 💖";
+        surpriseBtn.style.display = "inline-block"; // show button only
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdown.innerText = `${days} days, ${hours} hrs, ${minutes} mins, ${seconds} secs left 💞`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    window.onload = updateCountdown;
+  </script>
 </body>
 </html>
